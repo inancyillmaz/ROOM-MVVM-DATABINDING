@@ -71,7 +71,7 @@ abstract class UserRoomDatabase : RoomDatabase() {
 
             var word = User("İnanç", "Yılmaz", 24)
             userDao.insert(word)
-            word = User("İnanç", "Yılmaz", 241)
+            word = User("İnanç1", "Yılmaz1", 241)
             userDao.insert(word)
         }
     }

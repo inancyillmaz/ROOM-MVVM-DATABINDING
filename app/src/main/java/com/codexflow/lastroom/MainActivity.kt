@@ -37,13 +37,13 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-    /*    activityMainBinding.something =userviewm
+        activityMainBinding.something =userviewm
         activityMainBinding.setVariable(1,userviewm)
-        */
 
 
-      userviewm.allstore.observe(this, Observer { words ->
-          words?.let { adapter.setWords(it) }
+
+      userviewm.allstore.observe(this, Observer { users ->
+          users?.let { adapter.setWords(it) }
       })
 
 
