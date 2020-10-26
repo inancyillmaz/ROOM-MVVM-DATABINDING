@@ -10,9 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.codexflow.lastroom.databinding.ActivityMainBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +41,8 @@ class MainActivity : AppCompatActivity() {
 
 
       userviewm.allstore.observe(this, Observer { users ->
-          users?.let { adapter.setWords(it) }
+          users?.let {
+              adapter.setUsers(it) }
       })
 
 
@@ -52,11 +51,13 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
         super.onActivityResult(requestCode, resultCode, intentData)
 
+
+        //Buralar çalışmıyor şuan
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.let { data ->
-                val word = User("inanç", "yilmaz", 465)
+                val user = User("inanç", "yilmaz", 465)
 
-                userviewm.insert(word)
+                userviewm.insert(user)
                 Unit
             }
         } else {

@@ -44,7 +44,7 @@ class UserListAdapter internal constructor(
         return ViewHolder(binding)
     }
 
-    internal fun setWords(users: List<User>) {
+    internal fun setUsers(users: List<User>) {
         this.userlist = users
         notifyDataSetChanged()
     }
