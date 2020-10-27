@@ -16,12 +16,11 @@ import com.codexflow.lastroom.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private val newWordActivityRequestCode = 1
-    private lateinit var userviewm : UserViewModel
+    private lateinit var userviewm: UserViewModel
     private lateinit var activityMainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         userviewm = ViewModelProvider(this).get(UserViewModel::class.java)
 
@@ -35,22 +34,19 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        activityMainBinding.something =userviewm
-        activityMainBinding.setVariable(1,userviewm)
+     //  activityMainBinding.something = userviewm
+     //  activityMainBinding.setVariable(1, userviewm)
 
 
-
-      userviewm.allstore.observe(this, Observer { users ->
-          users?.let {
-              adapter.setUsers(it) }
-      })
-
-
+        userviewm.allstore.observe(this, { users ->
+            users?.let {
+                adapter.setUsers(it)
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
         super.onActivityResult(requestCode, resultCode, intentData)
-
 
         //Buralar çalışmıyor şuan
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
