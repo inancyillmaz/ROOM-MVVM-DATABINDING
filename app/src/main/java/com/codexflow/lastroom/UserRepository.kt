@@ -27,6 +27,7 @@ class UserRepository(private val userDao: UserDao) {
     // Observed LiveData will notify the observer when the data has changed.
     val alluserssaved: LiveData<List<User>> = userDao.getAllUsers()
 
+
     val name : LiveData<List<String>> = userDao.getUsersName()
     val surname : LiveData<List<String>> = userDao.getUsersSurname()
     val age : LiveData<List<Int>> = userDao.getUsersAge()

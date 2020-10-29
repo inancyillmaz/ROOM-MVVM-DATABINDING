@@ -16,48 +16,43 @@
 
 package com.codexflow.lastroom
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.codexflow.lastroom.databinding.RecyclerviewItemBinding
 
-
-class UserListAdapter internal constructor(
-        context: Context
-) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
-
-
-    private var userlist = emptyList<User>() // Cached copy of words
-
-    class ViewHolder(val binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Any) {
-            binding.setVariable(BR.userv, data)
-            binding.executePendingBindings()
+class UserListAdapter internal constructor() : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+    var userlist: List<User>? = null
+        set(value) {
+            field = value
+            notifyDataSetChanged()
         }
-    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: RecyclerviewItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.recyclerview_item, parent, false)
+        val binding: RecyclerviewItemBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.recyclerview_item,
+            parent,
+            false
+        )
         return ViewHolder(binding)
     }
 
-    internal fun setUsers(users: List<User>) {
-        this.userlist = users
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount() = userlist.size
-
+    override fun getItemCount() = userlist?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(userlist.get(position))
+        holder.bind(userlist?.get(position))
     }
 
-
-
+    inner class ViewHolder(val binding: RecyclerviewItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: User?) {
+            /*   binding.setVariable(BR.data, data)
+             gelecek nesnenin tipi belli değilse reflectiondan yardım alınıp binding'deki data üstteki gibi eşitlenebilir. */
+            binding.data = data
+        }
+    }
 }
 
 
