@@ -29,5 +29,5 @@ data class User(
 
 ){
         @PrimaryKey(autoGenerate = true)
-        var noteId: Int = 0
+        var primarykey: Int = 0
 }
