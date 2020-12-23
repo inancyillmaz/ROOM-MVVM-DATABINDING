@@ -1,10 +1,12 @@
-package com.codexflow.lastroom
+package com.codexflow.lastroom.ui
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.codexflow.lastroom.R
+import com.codexflow.lastroom.viewmodel.UserViewModel
 import com.codexflow.lastroom.databinding.ActivityMainBinding
 
 

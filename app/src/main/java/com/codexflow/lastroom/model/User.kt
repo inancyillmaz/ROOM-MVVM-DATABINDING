@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.codexflow.lastroom
+package com.codexflow.lastroom.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

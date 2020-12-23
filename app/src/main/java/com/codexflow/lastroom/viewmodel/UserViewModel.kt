@@ -1,10 +1,12 @@
-package com.codexflow.lastroom
+package com.codexflow.lastroom.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.codexflow.lastroom.room.UserRoomDatabase
+import com.codexflow.lastroom.model.User
+import com.codexflow.lastroom.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

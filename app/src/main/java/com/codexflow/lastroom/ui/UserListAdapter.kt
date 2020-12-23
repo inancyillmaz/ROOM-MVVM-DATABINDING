@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.codexflow.lastroom
+package com.codexflow.lastroom.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.codexflow.lastroom.R
 import com.codexflow.lastroom.databinding.RecyclerviewItemBinding
+import com.codexflow.lastroom.model.User
 
 class UserListAdapter internal constructor() : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
     var userlist: List<User>? = null
@@ -48,8 +50,6 @@ class UserListAdapter internal constructor() : RecyclerView.Adapter<UserListAdap
     inner class ViewHolder(val binding: RecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: User?) {
-            /*   binding.setVariable(BR.data, data)
-             gelecek nesnenin tipi belli değilse reflectiondan yardım alınıp binding'deki data üstteki gibi eşitlenebilir. */
             binding.data = data
         }
     }

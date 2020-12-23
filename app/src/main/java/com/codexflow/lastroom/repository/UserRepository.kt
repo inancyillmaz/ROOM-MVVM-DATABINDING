@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.codexflow.lastroom
+package com.codexflow.lastroom.repository
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.codexflow.lastroom.User
-import com.codexflow.lastroom.UserDao
+import com.codexflow.lastroom.room.UserDao
+import com.codexflow.lastroom.model.User
 
 
 class UserRepository(private val userDao: UserDao) {
